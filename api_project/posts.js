@@ -6,7 +6,7 @@ const database = require('./database.js');
 let db = database.getDB();
 router.get('/posts', function(req, res){
         console.log('Got a get request on posts.');
-        let sql = 'SELECT * FROM post';
+        let sql = 'SELECT * FROM post ORDER BY timestamp';
         db.all(sql, [], function(err, rows){
                 if(err){
                         console.log(err.message);
